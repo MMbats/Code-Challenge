@@ -1,4 +1,5 @@
-
+//  basic salary as 30,000
+const basicSalary = 3000
 function calculateNHIF(grossSalary) {
     if (grossSalary <= 5999) return 150;
     else if (grossSalary <= 7999) return 300;
@@ -19,39 +20,36 @@ function calculateNHIF(grossSalary) {
     else return 1700;
 }
 
-
+// NSSF Deduction (assuming 6% of gross salary, capped at Ksh 1,080)
 function calculateNSSF(grossSalary) {
-    
     const nssf = grossSalary * 0.06;
     return nssf > 1080 ? 1080 : nssf;
 }
 
-
+// Payee (Tax) Calculation 
 function calculateTax(grossSalary) {
     let tax;
-    
     if (grossSalary <= 24000) {
-        tax = grossSalary * 0.1; 
+        tax = grossSalary * 0.1;  // 10% for income up to 24,000
     } else if (grossSalary <= 32333) {
-        tax = 2400 + (grossSalary - 24000) * 0.25; 
+        tax = 2400 + (grossSalary - 24000) * 0.25;  // 25% for income between 24,001 and 32,333
     } else {
-        tax = 2400 + (32333 - 24000) * 0.25 + (grossSalary - 32333) * 0.30; 
+        tax = 2400 + (32333 - 24000) * 0.25 + (grossSalary - 32333) * 0.30;  // 30% for income above 32,333
     }
-
     return tax;
 }
 
-
+//  calculate Net Salary
 function calculateNetSalary(basicSalary, benefits) {
-    const grossSalary = basicSalary + benefits
+    const grossSalary = basicSalary + benefits;  // Gross salary
 
-    // deductions
+    // Calculate deductions
     const payeeTax = calculateTax(grossSalary);
     const nhifDeduction = calculateNHIF(grossSalary);
     const nssfDeduction = calculateNSSF(grossSalary);
 
-    const totalDeductions = payeeTax + nhifDeduction + nssfDeduction; // Total deductions
-    const netSalary = grossSalary - totalDeductions; // Net salary is gross salary minus total deductions
+    const totalDeductions = payeeTax + nhifDeduction + nssfDeduction;  // Sum of deductions
+    const netSalary = grossSalary - totalDeductions;  // Net salary = Gross Salary - Deductions
 
     return {
         grossSalary: grossSalary,
@@ -62,12 +60,15 @@ function calculateNetSalary(basicSalary, benefits) {
     };
 }
 
-const basicSalary = parseFloat(prompt("Enter your basic salary:"));
+//  benefits from the user
 const benefits = parseFloat(prompt("Enter your benefits:"));
 
-
+// salary details
 const salaryDetails = calculateNetSalary(basicSalary, benefits);
 
+
+console.log("Basic Salary: Ksh 30000");
+console.log("Benefits: Ksh " + benefits);
 console.log("Gross Salary: Ksh " + salaryDetails.grossSalary);
 console.log("Payee (Tax): Ksh " + salaryDetails.payeeTax);
 console.log("NHIF Deduction: Ksh " + salaryDetails.nhifDeduction);
@@ -76,6 +77,8 @@ console.log("Net Salary: Ksh " + salaryDetails.netSalary);
 
 
 alert(
+    "Basic Salary: Ksh 30000\n" +
+    "Benefits: Ksh " + benefits + "\n" +
     "Gross Salary: Ksh " + salaryDetails.grossSalary + "\n" +
     "Payee (Tax): Ksh " + salaryDetails.payeeTax + "\n" +
     "NHIF Deduction: Ksh " + salaryDetails.nhifDeduction + "\n" +
