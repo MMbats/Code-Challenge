@@ -25,6 +25,6 @@ const numericMarks = parseInt(marks);
 // Grade based on the input
 const grade = getStudentGrade(numericMarks);
 
-// Output the result
+// Results
 console.log(grade);
 alert(grade);
