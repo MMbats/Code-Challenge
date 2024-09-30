@@ -17,11 +17,11 @@ function checkSpeed(speed) {
     }
 }
 
-//  user for input
+//  the user for input
 const speed = prompt("Enter the car speed (in km/h):");
 
 //  input to number
 const numericSpeed = parseInt(speed);
 
-// Check speed and calculate points
+//  speed and  points
 checkSpeed(numericSpeed);
