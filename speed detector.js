@@ -1,4 +1,4 @@
-// Function to check the speed and calculate demerit points
+
 function checkSpeed(speed) {
     const speedLimit = 70;
     const kmPerDemeritPoint = 5;
@@ -17,11 +17,11 @@ function checkSpeed(speed) {
     }
 }
 
-// Prompt user for input
+//  user for input
 const speed = prompt("Enter the car speed (in km/h):");
 
-// Convert input to number
+//  input to number
 const numericSpeed = parseInt(speed);
 
-// Check the speed and calculate points
+// Check speed and calculate points
 checkSpeed(numericSpeed);
