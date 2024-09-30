@@ -1,5 +1,5 @@
 
-// Function to get student grade based on marks
+//  student grade based on marks
 function getStudentGrade(marks) {
     if (marks > 100 || marks < 0) {
         return "Invalid marks! Please enter a number between 0 and 100.";
@@ -16,13 +16,13 @@ function getStudentGrade(marks) {
     }
 }
 
-// Prompt user for input
+
 const marks = prompt("Enter the student's marks (0 - 100):");
 
-// Convert input to number
+// Convertion of input to number
 const numericMarks = parseInt(marks);
 
-// Get the grade based on the input
+// Grade based on the input
 const grade = getStudentGrade(numericMarks);
 
 // Output the result
